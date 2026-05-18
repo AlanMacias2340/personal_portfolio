@@ -6,10 +6,11 @@ export default function Hero() {
         <p className="font-mono text-sm text-blue-400 mb-4">
           {"<hello-world />"}
         </p>
-        <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
           Hi, I&apos;m{" "}
+          <br className="sm:hidden" />
           <span className="bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
-            Alan
+            Alan Jeferson Macias Mamani
           </span>
         </h1>
         <p className="mt-6 text-lg leading-8 text-zinc-400 sm:text-xl">

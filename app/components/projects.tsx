@@ -1,24 +1,24 @@
 const projects = [
   {
-    title: "E-Commerce API",
+    title: "Elite Brands",
     description:
-      "RESTful backend service built with Python and FastAPI, containerized with Docker running on Ubuntu server. Handles product catalog, user auth, and order processing.",
-    tags: ["Python", "Docker", "Ubuntu", "FastAPI"],
-    link: "#",
+      "Corporate website for Elite Brands, a leading import and distribution company in Bolivia with 78+ years in the market. Features product catalog, brand showcases, and supplier contact.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    link: "https://www.elitebrands.com.bo/home",
   },
   {
-    title: "Task Manager Dashboard",
+    title: "Top Service",
     description:
-      "Full-stack task management app with real-time updates. Built with Next.js, TypeScript, and React for the frontend, with a Java Spring Boot backend.",
-    tags: ["Next.js", "TypeScript", "React", "Java"],
-    link: "#",
+      "Corporate website for Top Service, a Bolivian medical/dental equipment technical service company with branches in 5 cities. Features service catalog, branch locator, and appointment booking.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    link: "https://topservice.com.bo/",
   },
   {
-    title: "DevOps Pipeline Toolkit",
+    title: "Administración de Servicios",
     description:
-      "CI/CD automation scripts and Docker compose configurations for deploying microservices. Includes monitoring, logging, and auto-scaling on Ubuntu infrastructure.",
-    tags: ["Docker", "Ubuntu", "Python", "TypeScript"],
-    link: "#",
+      "Internal service management platform for handling service requests, technician assignments, and client communication. Built with Vite + React, NestJS, and MySQL.",
+    tags: ["Vite", "React", "NestJS", "MySQL"],
+    link: "/projects/administracion-de-servicios",
   },
   {
     title: "Portfolio CMS",

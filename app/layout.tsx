@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alan | Software Developer",
+  title: "Alan Jeferson Macias Mamani | Software Developer",
   description:
     "Full-stack developer specializing in Python, TypeScript, React, Next.js, and cloud infrastructure.",
 };

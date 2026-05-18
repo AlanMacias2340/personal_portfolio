@@ -9,7 +9,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <footer className="py-12 text-center text-sm text-zinc-600">
-        <p>&copy; {new Date().getFullYear()} Alan. Built with Next.js & Tailwind CSS.</p>
+        <p>&copy; {new Date().getFullYear()} Alan Jeferson Macias Mamani. Built with Next.js & Tailwind CSS.</p>
       </footer>
     </>
   );
