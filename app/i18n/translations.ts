@@ -2,9 +2,21 @@ export type Language = "en" | "es";
 
 export const translations = {
   navbar: {
+    inicio: { en: "Home", es: "Inicio" },
     skills: { en: "Skills", es: "Habilidades" },
     projects: { en: "Projects", es: "Proyectos" },
     contact: { en: "Contact", es: "Contacto" },
+  },
+  inicio: {
+    greeting: { en: "Hi, I'm", es: "Hola, soy" },
+    role: { en: "Full-Stack Software Developer", es: "Desarrollador de Software Full-Stack" },
+    bio: {
+      en: "Passionate about building clean, performant applications and solving complex problems with modern technology. Based in La Paz, Bolivia.",
+      es: "Apasionado por construir aplicaciones limpias, de alto rendimiento y resolver problemas complejos con tecnología moderna. Con sede en La Paz, Bolivia.",
+    },
+    availability: { en: "Open to opportunities", es: "Abierto a oportunidades" },
+    viewProjects: { en: "View Projects", es: "Ver Proyectos" },
+    contactMe: { en: "Contact Me", es: "Contáctame" },
   },
   hero: {
     greeting: { en: "Hi, I'm", es: "Hola, soy" },

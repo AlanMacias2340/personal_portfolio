@@ -61,15 +61,15 @@ export default function ScreenshotGallery({ screenshots, altPrefix }: Props) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-2 sm:p-4"
             onClick={close}
           >
             <button
               type="button"
               onClick={close}
-              className="absolute top-6 right-6 z-10 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 rounded-full bg-white/10 p-2.5 text-white hover:bg-white/20 transition-colors"
             >
-              <X size={24} />
+              <X size={22} />
             </button>
 
             <motion.div
@@ -77,7 +77,8 @@ export default function ScreenshotGallery({ screenshots, altPrefix }: Props) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full max-w-5xl max-h-[90vh] aspect-video"
+              className="relative w-full max-w-5xl"
+              style={{ aspectRatio: "16/9" }}
               onClick={(e) => e.stopPropagation()}
             >
               <Image
@@ -85,6 +86,7 @@ export default function ScreenshotGallery({ screenshots, altPrefix }: Props) {
                 alt={`${altPrefix} — Screen ${activeIndex + 1}`}
                 fill
                 className="object-contain"
+                sizes="100vw"
               />
             </motion.div>
           </motion.div>

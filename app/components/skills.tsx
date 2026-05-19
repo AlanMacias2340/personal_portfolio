@@ -17,7 +17,7 @@ export default function Skills() {
   const t = useT();
 
   return (
-    <section id="skills" className="py-32 px-6">
+    <section id="skills" className="py-24 sm:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -25,15 +25,15 @@ export default function Skills() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
             <span className="text-blue-500">const</span> skills <span className="text-blue-500">=</span> [
           </h2>
-          <p className="mt-4 text-center text-zinc-400">
+          <p className="mt-4 text-center text-zinc-400 text-sm sm:text-base">
             {t("skills", "heading")}
           </p>
         </motion.div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-4">
+        <div className="mt-12 sm:mt-16 flex flex-wrap justify-center gap-3 sm:gap-4">
           {skills.map((skill, index) => (
             <motion.span
               key={skill.name}
@@ -42,7 +42,7 @@ export default function Skills() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4, type: "spring", stiffness: 100 }}
               whileHover={{ scale: 1.05 }}
-              className={`rounded-xl border px-6 py-3 text-sm font-medium transition-colors hover:bg-opacity-20 ${skill.color}`}
+              className={`rounded-xl border px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors hover:bg-opacity-20 ${skill.color}`}
             >
               {skill.name}
             </motion.span>
@@ -52,7 +52,7 @@ export default function Skills() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-3xl font-bold tracking-tight sm:text-4xl mt-12"
+          className="text-center text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mt-10 sm:mt-12"
         >
           ];
         </motion.h2>

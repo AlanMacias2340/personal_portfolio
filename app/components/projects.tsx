@@ -38,22 +38,22 @@ export default function Projects() {
   const t = useT();
 
   return (
-    <section id="projects" className="py-32 px-6 bg-zinc-950/50 relative">
+    <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6 bg-zinc-950/50 relative">
       <div className="mx-auto max-w-5xl">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true, margin: "-100px" }}
            transition={{ duration: 0.5 }}
-           className="mb-16"
+           className="mb-12 sm:mb-16"
         >
-          <div className="flex items-center gap-4 mb-4">
-             <div className="h-px w-12 bg-zinc-700" />
-             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
+          <div className="flex items-center gap-3 sm:gap-4 mb-4">
+             <div className="h-px w-8 sm:w-12 bg-zinc-700" />
+             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
                {t("projects", "heading")}
              </h2>
           </div>
-          <p className="text-zinc-400 pl-16">
+          <p className="text-zinc-400 pl-12 sm:pl-16 text-sm sm:text-base">
             {t("projects", "subheading")}
           </p>
         </motion.div>
@@ -104,7 +104,7 @@ export default function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-zinc-800 bg-black p-8 transition-all hover:-translate-y-1 hover:border-zinc-500 hover:shadow-2xl hover:shadow-white/5"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-zinc-800 bg-black p-5 sm:p-8 transition-all hover:-translate-y-1 hover:border-zinc-500 hover:shadow-2xl hover:shadow-white/5"
                 >
                   {content}
                 </motion.a>

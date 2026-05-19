@@ -6,8 +6,8 @@ export default function Footer() {
   const t = useT();
 
   return (
-    <footer className="py-12 border-t border-zinc-900 bg-black text-center text-sm text-zinc-500">
-      <p className="flex items-center justify-center gap-2">
+    <footer className="py-8 sm:py-12 border-t border-zinc-900 bg-black text-center text-xs sm:text-sm text-zinc-500 px-4">
+      <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
         &copy; {new Date().getFullYear()} Alan Jeferson. {t("footer", "builtWith")}{" "}
         <span className="text-white hover:text-blue-400 transition-colors cursor-pointer">Next.js</span>
         {" "}&amp;{" "}

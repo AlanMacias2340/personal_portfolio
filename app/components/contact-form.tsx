@@ -33,21 +33,21 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 bg-black relative">
+    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 bg-black relative">
       <div className="mx-auto max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-12 sm:mb-16 text-center"
         >
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="h-px w-12 bg-zinc-700" />
-            <Mail className="text-blue-500" size={28} />
-            <div className="h-px w-12 bg-zinc-700" />
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4">
+            <div className="h-px w-8 sm:w-12 bg-zinc-700" />
+            <Mail className="text-blue-500" size={24} />
+            <div className="h-px w-8 sm:w-12 bg-zinc-700" />
           </div>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
             {t("contact", "heading")}
           </h2>
           <p className="mt-4 text-zinc-400">
