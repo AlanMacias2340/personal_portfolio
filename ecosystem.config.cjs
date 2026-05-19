@@ -4,7 +4,6 @@ module.exports = {
       name: "personal-portfolio",
       script: "./node_modules/next/dist/bin/next",
       args: "start",
-      cwd: "/home/alanj2340/projectos/personal_portfolio",
       instances: 1,
       exec_mode: "fork",
       env: {

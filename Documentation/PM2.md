@@ -6,5 +6,5 @@
 pnpm approve-builds
 pnpm install
 pnpm build
-pnpm run release
+pm2 start ecosystem.config.cjs
 ```
