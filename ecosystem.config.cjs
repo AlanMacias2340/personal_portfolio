@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "personal-portfolio",
-      script: "node_modules/.bin/next",
+      script: "./node_modules/next/dist/bin/next",
       args: "start",
       cwd: "/home/alan/personal_portfolio",
       instances: 1,
