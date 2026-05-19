@@ -11,8 +11,8 @@ export const translations = {
     greeting: { en: "Hi, I'm", es: "Hola, soy" },
     role: { en: "Full-Stack Software Developer", es: "Desarrollador de Software Full-Stack" },
     bio: {
-      en: "Passionate about building clean, performant applications and solving complex problems with modern technology. Based in La Paz, Bolivia.",
-      es: "Apasionado por construir aplicaciones limpias, de alto rendimiento y resolver problemas complejos con tecnología moderna. Con sede en La Paz, Bolivia.",
+      en: "Passionate about building clean, performant applications and solving complex problems with modern technology. Based in Bolivia.",
+      es: "Apasionado por construir aplicaciones limpias, de alto rendimiento y resolver problemas complejos con tecnología moderna. Con sede en Bolivia.",
     },
     availability: { en: "Open to opportunities", es: "Abierto a oportunidades" },
     viewProjects: { en: "View Projects", es: "Ver Proyectos" },

@@ -91,7 +91,7 @@ export default function Inicio() {
           >
             <span className="flex items-center gap-1.5">
               <MapPin size={14} className="text-blue-400" />
-              La Paz, Bolivia
+              Bolivia
             </span>
             <span className="flex items-center gap-1.5">
               <Briefcase size={14} className="text-blue-400" />
