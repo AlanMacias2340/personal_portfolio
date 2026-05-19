@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useT } from "../i18n/LanguageProvider";
 
 const skills = [
   { name: "Python", color: "bg-yellow-400/10 text-yellow-500 border-yellow-400/20" },
@@ -13,6 +14,8 @@ const skills = [
 ];
 
 export default function Skills() {
+  const t = useT();
+
   return (
     <section id="skills" className="py-32 px-6">
       <div className="mx-auto max-w-4xl">
@@ -26,10 +29,10 @@ export default function Skills() {
             <span className="text-blue-500">const</span> skills <span className="text-blue-500">=</span> [
           </h2>
           <p className="mt-4 text-center text-zinc-400">
-            A list of technologies I work with.
+            {t("skills", "heading")}
           </p>
         </motion.div>
-        
+
         <div className="mt-16 flex flex-wrap justify-center gap-4">
           {skills.map((skill, index) => (
             <motion.span

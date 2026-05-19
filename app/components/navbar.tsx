@@ -1,10 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Mail, Languages } from "lucide-react";
 import Link from "next/link";
+import { useLanguage, useT } from "../i18n/LanguageProvider";
 
 export default function Navbar() {
+  const { toggleLang, lang } = useLanguage();
+  const t = useT();
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -17,11 +21,20 @@ export default function Navbar() {
           ALAN<span className="text-blue-500">.</span>DEV
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-          <Link href="#skills" className="hover:text-white transition-colors">Skills</Link>
-          <Link href="#projects" className="hover:text-white transition-colors">Projects</Link>
-          <Link href="#contact" className="hover:text-white transition-colors">Contact</Link>
+          <Link href="#skills" className="hover:text-white transition-colors">{t("navbar", "skills")}</Link>
+          <Link href="#projects" className="hover:text-white transition-colors">{t("navbar", "projects")}</Link>
+          <Link href="#contact" className="hover:text-white transition-colors">{t("navbar", "contact")}</Link>
         </div>
         <div className="flex items-center gap-4 text-zinc-400">
+          <button
+            type="button"
+            onClick={toggleLang}
+            className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wider hover:text-white transition-colors"
+            title={lang === "en" ? "Switch to Spanish" : "Cambiar a Inglés"}
+          >
+            <Languages size={16} />
+            <span>{lang === "en" ? "ES" : "EN"}</span>
+          </button>
           <Link href="https://github.com/AlanMacias2340" target="_blank" className="hover:text-white transition-colors">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />

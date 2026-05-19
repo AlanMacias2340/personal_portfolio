@@ -4,10 +4,12 @@ import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useT } from "../i18n/LanguageProvider";
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
+  const t = useT();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -21,10 +23,10 @@ export default function ContactForm() {
       });
 
       if (!res.ok) throw new Error();
-      toast.success("Message sent! I'll get back to you soon.");
+      toast.success(t("contact", "success"));
       setForm({ name: "", email: "", message: "" });
     } catch {
-      toast.error("Failed to send. Please try again or email me directly.");
+      toast.error(t("contact", "error"));
     } finally {
       setSending(false);
     }
@@ -46,10 +48,10 @@ export default function ContactForm() {
             <div className="h-px w-12 bg-zinc-700" />
           </div>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
-            Get in Touch
+            {t("contact", "heading")}
           </h2>
           <p className="mt-4 text-zinc-400">
-            Have a project or opportunity? I&apos;d love to hear from you.
+            {t("contact", "subheading")}
           </p>
         </motion.div>
 
@@ -64,7 +66,7 @@ export default function ContactForm() {
           <div className="grid gap-6 sm:grid-cols-2">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-zinc-400 mb-2">
-                Name
+                {t("contact", "name")}
               </label>
               <input
                 id="name"
@@ -72,13 +74,13 @@ export default function ContactForm() {
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="Your name"
+                placeholder={t("contact", "namePlaceholder")}
                 className="w-full rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors"
               />
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-zinc-400 mb-2">
-                Email
+                {t("contact", "email")}
               </label>
               <input
                 id="email"
@@ -86,14 +88,14 @@ export default function ContactForm() {
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="you@example.com"
+                placeholder={t("contact", "emailPlaceholder")}
                 className="w-full rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors"
               />
             </div>
           </div>
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-zinc-400 mb-2">
-              Message
+              {t("contact", "message")}
             </label>
             <textarea
               id="message"
@@ -101,7 +103,7 @@ export default function ContactForm() {
               rows={5}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              placeholder="Tell me about your project..."
+              placeholder={t("contact", "messagePlaceholder")}
               className="w-full rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors resize-none"
             />
           </div>
@@ -114,12 +116,12 @@ export default function ContactForm() {
             {sending ? (
               <>
                 <Loader2 size={18} className="animate-spin" />
-                Sending...
+                {t("contact", "sending")}
               </>
             ) : (
               <>
                 <Send size={18} />
-                Send Message
+                {t("contact", "send")}
               </>
             )}
           </button>
