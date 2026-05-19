@@ -14,7 +14,7 @@
     "pm2:delete": "pm2 delete personal-portfolio",
     "pm2:status": "pm2 status",
     "pm2:logs": "pm2 logs personal-portfolio",
-    "deploy": "pnpm build && pnpm pm2:reload || pnpm pm2:start"
+    "release": "pnpm build && pnpm pm2:reload || pnpm pm2:start"
   },
   "dependencies": {
     "@marsidev/react-turnstile": "^1.5.2",

@@ -16,6 +16,8 @@ pnpm approve-builds   # approve sharp + unrs-resolver
 pnpm install          # re-run to build native modules
 ```
 
+> **Why `approve-builds`?** pnpm blocks native build scripts (sharp, unrs-resolver) by default. Running `pnpm approve-builds` whitelists them so Next.js image optimization works.
+
 ## Environment Variables
 
 Copy and edit `.env.local`:
@@ -41,6 +43,14 @@ pnpm build
 ```
 
 Output goes to `.next/`. Static export is not used — the app runs as a Node.js server.
+
+## Deployment (with PM2)
+
+```bash
+pnpm run release     # Build + PM2 start/reload
+```
+
+See [PM2.md](./PM2.md) for the full deployment guide.
 
 ## Linting
 
