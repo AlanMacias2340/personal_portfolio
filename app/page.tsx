@@ -4,13 +4,18 @@ import Projects from "./components/projects";
 
 export default function Home() {
   return (
-    <>
+    <main className="flex min-h-screen flex-col">
       <Hero />
       <Skills />
       <Projects />
-      <footer className="py-12 text-center text-sm text-zinc-600">
-        <p>&copy; {new Date().getFullYear()} Alan Jeferson Macias Mamani. Built with Next.js & Tailwind CSS.</p>
+      <footer className="py-12 border-t border-zinc-900 bg-black text-center text-sm text-zinc-500">
+        <p className="flex items-center justify-center gap-2">
+          &copy; {new Date().getFullYear()} Alan Jeferson. Built with 
+          <span className="text-white hover:text-blue-400 transition-colors cursor-pointer">Next.js</span> 
+          &amp; 
+          <span className="text-white hover:text-cyan-400 transition-colors cursor-pointer">Tailwind CSS</span>.
+        </p>
       </footer>
-    </>
+    </main>
   );
 }

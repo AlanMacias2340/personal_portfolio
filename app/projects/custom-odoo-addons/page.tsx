@@ -5,22 +5,22 @@ import { join } from "path";
 import ScreenshotGallery from "@/app/components/screenshot-gallery";
 
 export const metadata: Metadata = {
-  title: "Administración de Servicios | Alan Jeferson Macias Mamani",
+  title: "Custom Odoo Addons | Alan Jeferson Macias Mamani",
   description:
-    "Internal service management platform built with Vite + React, NestJS, and MySQL. Features service tracking, technician scheduling, and client communication.",
+    "Custom modules and addons developed for Odoo ERP to extend functionality with business-specific workflows, reports, and integrations.",
 };
 
-const screenshotsDir = join(process.cwd(), "public/projects/admin-top-service");
+const screenshotsDir = join(process.cwd(), "public/projects/odoo-custom-addons");
 
 const screenshots: string[] = readdirSync(screenshotsDir)
   .filter((f) => /\.(png|jpg|jpeg|webp)$/i.test(f))
   .sort()
-  .map((f) => `/projects/admin-top-service/${f}`);
+  .map((f) => `/projects/odoo-custom-addons/${f}`);
 
 const techStack = [
-  { name: "Vite + React", color: "bg-cyan-400/10 text-cyan-400 border-cyan-400/30" },
-  { name: "NestJS", color: "bg-red-400/10 text-red-400 border-red-400/30" },
-  { name: "MySQL", color: "bg-blue-400/10 text-blue-400 border-blue-400/30" },
+  { name: "Python", color: "bg-yellow-400/10 text-yellow-400 border-yellow-400/30" },
+  { name: "Odoo", color: "bg-purple-400/10 text-purple-400 border-purple-400/30" },
+  { name: "PostgreSQL", color: "bg-blue-400/10 text-blue-400 border-blue-400/30" },
 ];
 
 export default function ProjectDetail() {
@@ -48,7 +48,7 @@ export default function ProjectDetail() {
         </Link>
 
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Administraci&oacute;n de Servicios
+          Custom Odoo Addons
         </h1>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -63,10 +63,10 @@ export default function ProjectDetail() {
         </div>
 
         <p className="mt-8 text-lg leading-8 text-zinc-400">
-          Internal service management platform built for a company to handle and
-          track service requests, technician assignments, and client
-          communication. The system streamlines operations and provides
-          real-time visibility into service workflows.
+          Custom modules and addons developed for Odoo ERP to extend core
+          functionality with business-specific workflows, automated reports, and
+          third-party integrations. Each module is tailored to meet unique
+          operational requirements not covered by standard Odoo modules.
         </p>
 
         <section className="mt-16">
@@ -75,24 +75,24 @@ export default function ProjectDetail() {
           </h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             <div className="rounded-xl border border-zinc-800 bg-surface/50 p-5">
-              <h3 className="font-semibold text-cyan-400">Vite + React</h3>
+              <h3 className="font-semibold text-yellow-400">Python</h3>
               <p className="mt-2 text-sm text-zinc-400">
-                Fast and modern frontend built with Vite for instant HMR and
-                React for a dynamic, responsive UI.
+                Odoo modules are built with Python, leveraging the Odoo ORM and
+                framework APIs for models, views, and business logic.
               </p>
             </div>
             <div className="rounded-xl border border-zinc-800 bg-surface/50 p-5">
-              <h3 className="font-semibold text-red-400">NestJS</h3>
+              <h3 className="font-semibold text-purple-400">Odoo</h3>
               <p className="mt-2 text-sm text-zinc-400">
-                Scalable backend API with a modular architecture, authentication,
-                and role-based access control.
+                Custom addons extend Odoo&apos;s modular architecture with new
+                apps, automated actions, and tailored workflows.
               </p>
             </div>
             <div className="rounded-xl border border-zinc-800 bg-surface/50 p-5">
-              <h3 className="font-semibold text-blue-400">MySQL</h3>
+              <h3 className="font-semibold text-blue-400">PostgreSQL</h3>
               <p className="mt-2 text-sm text-zinc-400">
-                Relational database for persistent storage of users, services,
-                appointments, and audit logs.
+                Reliable database backend for storing transactional data, custom
+                models, and integration records.
               </p>
             </div>
           </div>
@@ -105,23 +105,23 @@ export default function ProjectDetail() {
           <ul className="mt-6 space-y-3 text-zinc-400">
             <li className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 rounded-full bg-blue-400 shrink-0" />
-              Service request creation and lifecycle tracking
+              Custom business workflows and automated actions
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 rounded-full bg-blue-400 shrink-0" />
-              Technician assignment and scheduling dashboard
+              Tailored reports and dashboards for real-time insights
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 rounded-full bg-blue-400 shrink-0" />
-              Client communication and notification system
+              Third-party API integrations (payment gateways, shipping, ERPs)
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 rounded-full bg-blue-400 shrink-0" />
-              Reports and analytics with export capabilities
+              Role-based access control and multi-company support
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 rounded-full bg-blue-400 shrink-0" />
-              Role-based access control for admins, technicians, and clients
+              Data migration and import/export tools
             </li>
           </ul>
         </section>
@@ -132,7 +132,7 @@ export default function ProjectDetail() {
           </h2>
           <ScreenshotGallery
             screenshots={screenshots}
-            altPrefix="Administración de Servicios"
+            altPrefix="Custom Odoo Addons"
           />
         </section>
       </div>

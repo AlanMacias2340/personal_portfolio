@@ -1,33 +1,58 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const skills = [
-  { name: "Python", color: "bg-yellow-400/10 text-yellow-400 border-yellow-400/30" },
-  { name: "Java", color: "bg-orange-400/10 text-orange-400 border-orange-400/30" },
-  { name: "TypeScript", color: "bg-blue-400/10 text-blue-400 border-blue-400/30" },
-  { name: "React", color: "bg-cyan-400/10 text-cyan-400 border-cyan-400/30" },
-  { name: "Next.js", color: "bg-zinc-400/10 text-zinc-300 border-zinc-500/30" },
-  { name: "Docker", color: "bg-blue-500/10 text-blue-300 border-blue-500/30" },
-  { name: "Ubuntu", color: "bg-orange-500/10 text-orange-300 border-orange-500/30" },
+  { name: "Python", color: "bg-yellow-400/10 text-yellow-500 border-yellow-400/20" },
+  { name: "Java", color: "bg-orange-400/10 text-orange-500 border-orange-400/20" },
+  { name: "TypeScript", color: "bg-blue-400/10 text-blue-400 border-blue-400/20" },
+  { name: "React", color: "bg-cyan-400/10 text-cyan-400 border-cyan-400/20" },
+  { name: "Next.js", color: "bg-zinc-400/10 text-zinc-300 border-zinc-500/20" },
+  { name: "Docker", color: "bg-blue-500/10 text-blue-500 border-blue-500/20" },
+  { name: "Ubuntu", color: "bg-orange-600/10 text-orange-600 border-orange-600/20" },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="py-32 px-6">
       <div className="mx-auto max-w-4xl">
-        <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
-          <span className="text-blue-400">&gt;</span> Skills
-        </h2>
-        <p className="mt-4 text-center text-zinc-400">
-          Technologies and tools I work with daily.
-        </p>
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
-          {skills.map((skill) => (
-            <span
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
+            <span className="text-blue-500">const</span> skills <span className="text-blue-500">=</span> [
+          </h2>
+          <p className="mt-4 text-center text-zinc-400">
+            A list of technologies I work with.
+          </p>
+        </motion.div>
+        
+        <div className="mt-16 flex flex-wrap justify-center gap-4">
+          {skills.map((skill, index) => (
+            <motion.span
               key={skill.name}
-              className={`rounded-full border px-5 py-2.5 text-sm font-medium transition-all hover:scale-105 ${skill.color}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.4, type: "spring", stiffness: 100 }}
+              whileHover={{ scale: 1.05 }}
+              className={`rounded-xl border px-6 py-3 text-sm font-medium transition-colors hover:bg-opacity-20 ${skill.color}`}
             >
               {skill.name}
-            </span>
+            </motion.span>
           ))}
         </div>
+        <motion.h2 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center text-3xl font-bold tracking-tight sm:text-4xl mt-12"
+        >
+          ];
+        </motion.h2>
       </div>
     </section>
   );
