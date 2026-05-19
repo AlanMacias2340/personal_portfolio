@@ -9,13 +9,45 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+  if (!secretKey) return false;
+
+  const formData = new URLSearchParams();
+  formData.append("secret", secretKey);
+  formData.append("response", token);
+
+  const result = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    { method: "POST", body: formData }
+  );
+
+  const data = await result.json();
+  return data.success === true;
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, message, turnstileToken } = await request.json();
 
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Name, email, and message are required." },
+        { status: 400 }
+      );
+    }
+
+    if (!turnstileToken) {
+      return NextResponse.json(
+        { error: "Security verification required." },
+        { status: 400 }
+      );
+    }
+
+    const verified = await verifyTurnstile(turnstileToken);
+    if (!verified) {
+      return NextResponse.json(
+        { error: "Security verification failed. Please try again." },
         { status: 400 }
       );
     }

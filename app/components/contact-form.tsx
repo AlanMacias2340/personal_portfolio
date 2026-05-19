@@ -1,32 +1,49 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useRef, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { useT } from "../i18n/LanguageProvider";
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
   const t = useT();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (!turnstileToken) {
+      toast.error(t("contact", "turnstileRequired"));
+      return;
+    }
+
     setSending(true);
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
 
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to send");
+      }
+
       toast.success(t("contact", "success"));
       setForm({ name: "", email: "", message: "" });
-    } catch {
-      toast.error(t("contact", "error"));
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : t("contact", "error"));
+      turnstileRef.current?.reset();
+      setTurnstileToken(null);
     } finally {
       setSending(false);
     }
@@ -105,6 +122,20 @@ export default function ContactForm() {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               placeholder={t("contact", "messagePlaceholder")}
               className="w-full rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-colors resize-none"
+            />
+          </div>
+
+          <div className="flex justify-center">
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={setTurnstileToken}
+              onError={() => {
+                setTurnstileToken(null);
+                toast.error(t("contact", "turnstileError"));
+              }}
+              onExpire={() => setTurnstileToken(null)}
+              options={{ theme: "dark" }}
             />
           </div>
 

@@ -65,6 +65,8 @@ export const translations = {
     sending: { en: "Sending...", es: "Enviando..." },
     success: { en: "Message sent! I'll get back to you soon.", es: "¡Mensaje enviado! Te responderé pronto." },
     error: { en: "Failed to send. Please try again or email me directly.", es: "Error al enviar. Intenta de nuevo o envíame un correo directamente." },
+    turnstileRequired: { en: "Please complete the security check.", es: "Por favor completa la verificación de seguridad." },
+    turnstileError: { en: "Security check failed. Please refresh and try again.", es: "La verificación de seguridad falló. Recarga e intenta de nuevo." },
   },
   footer: {
     builtWith: { en: "Built with", es: "Construido con" },
