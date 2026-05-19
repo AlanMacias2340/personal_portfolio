@@ -6,7 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop personal-portfolio",
+    "pm2:restart": "pm2 restart personal-portfolio",
+    "pm2:reload": "pm2 reload personal-portfolio",
+    "pm2:delete": "pm2 delete personal-portfolio",
+    "pm2:status": "pm2 status",
+    "pm2:logs": "pm2 logs personal-portfolio",
+    "deploy": "pnpm build && pnpm pm2:reload || pnpm pm2:start"
   },
   "dependencies": {
     "@marsidev/react-turnstile": "^1.5.2",
