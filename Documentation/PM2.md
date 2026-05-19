@@ -65,7 +65,6 @@ pm2 monit                      # Real-time dashboard
 - **Port**: `3000`
 - **Memory limit**: 512 MB (auto-restart)
 - **Instances**: 1 (fork mode)
-- **Logs**: `./logs/pm2-out.log`, `./logs/pm2-error.log`
 - **Auto-restart**: enabled (max 10 restarts, 5s delay)
 
 ## Run on System Boot
@@ -90,7 +89,3 @@ pnpm run pm2:reload            # Zero-downtime reload
 pm2 logs personal-portfolio        # Stream logs
 pm2 logs personal-portfolio --lines 100  # Last 100 lines
 ```
-
-Log files are at:
-- `./logs/pm2-out.log`
-- `./logs/pm2-error.log`
