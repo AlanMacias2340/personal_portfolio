@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin, Briefcase } from "lucide-react";
+import Image from "next/image";
 import { useT } from "../i18n/LanguageProvider";
 
 export default function Inicio() {
@@ -26,11 +27,15 @@ export default function Inicio() {
           className="shrink-0"
         >
           <div className="relative">
-            <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-3xl overflow-hidden border-2 border-zinc-800 bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent" />
-              <span className="text-5xl sm:text-6xl font-bold text-white/30 select-none">
-                AM
-              </span>
+            <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-3xl overflow-hidden border-2 border-zinc-800 bg-zinc-900">
+              <Image
+                src="/perfil/perfil.png"
+                alt="Alan Jeferson"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 160px, 208px"
+                priority
+              />
             </div>
             <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-green-500 border-4 border-black" />
           </div>
