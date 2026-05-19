@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 import Navbar from "./components/navbar";
 
@@ -32,6 +33,17 @@ export default function RootLayout({
       <body className="min-h-full bg-black text-white selection:bg-blue-500/30">
         <Navbar />
         {children}
+        <Toaster
+          theme="dark"
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "#18181b",
+              border: "1px solid #27272a",
+              color: "#f4f4f5",
+            },
+          }}
+        />
       </body>
     </html>
   );
